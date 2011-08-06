@@ -196,6 +196,7 @@ test: \
 	test/time
 
 test/core: \
+	test/core/test-style.test \
 	test/core/test-append.test \
 	test/core/test-attr.test \
 	test/core/test-bisect.test \

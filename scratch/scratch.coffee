@@ -6,18 +6,11 @@ data = [0..5].map (x) ->
   i: x
   z: if x == 3 then 1 else 0
 
-ol = d3.select("#html_scratch")
-  .append("ol")
-
-ol.selectAll("li")
-  .data(data)
-  .enter()
-  .append("li")
-  #  .sort((a, b) -> b.z - a.z)
-  .zindex((d) -> d.z)
-  .text((d) -> "#{d.i} has z-index: #{d.z}")
-
-
+ol = d3.select("#html_scratch").selectAll("div")
+    .data("abcdefghijk".split(""))
+  .enter().append("div")
+    .attr("value", (d, i) -> d)
+    .style("z-index", (d, i)-> i)
 
 svg_data = ["red", "green", "blue"].map (x, i) ->
   color: x
@@ -36,6 +29,5 @@ svg.selectAll("circle")
   .attr("r", 50)
   .attr("cx", w/2)
   .attr("cy", w/2)
-  .zindex((d) -> d.z)
   .attr("fill", (d) -> d.color)
 
